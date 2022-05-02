@@ -1,0 +1,9 @@
+{
+  "firstName": "Marek",
+  "lastName": "Raubuć",
+  "address": {
+    "city": "Wrocław",
+    "street": "Kwaśna"
+  },
+  "pesel": "65050508756"
+}
