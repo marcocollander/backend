@@ -1,0 +1,1 @@
+const canadianDollar = 0.91

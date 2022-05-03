@@ -1,4 +1,4 @@
-const socketio = require('socket.io');
+const { Server } = require('socket.io');
 let io;
 let guestNumber = 1;
 const nickNames = {};
@@ -6,8 +6,8 @@ const namesUsed = [];
 const currentRoom = {};
 
 exports.listen = server => {
-  io = socketio.listen(server);
-  io.set('log level', 1);
+  io = new Server(server);
+  // io.set('log level', 1);
   io.sockets.on('connection', socket => {
     guestNumber = assignGuestName(socket, guestNumber, nickNames, namesUsed);
     joinRoom(socket, 'Lobby');
