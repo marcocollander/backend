@@ -1,4 +1,6 @@
-const currency = require("./currency");
+const Currency = require("./currency");
+
+const currency = new Currency(0.91);
 
 console.log(
   `50 dolarów kanadyjskich odpowiada następującej ilości dolarów amerykańskich:`
