@@ -8,6 +8,7 @@ const server = net.createServer((socket) => {
   });
 });
 
-server.listen((port, host) => {
-  console.log(`Server is running on https://${host}:${port}`);
+server.listen({
+  host,
+  port,
 });
