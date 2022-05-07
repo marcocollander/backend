@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Front-end talks with back-end </title>
+</head>
+<body>
+<form action="">
+  <label for="nameInput">Imię:</label><br><input type="text" id="nameInput"><br><br>
+  <label for="surnameInput">Nazwisko:</label><br><input type="text" id="surnameInput"><br><br><br>
+  <button type="submit">Wygeneruj odnośnik</button>
+</form>
+<br><br>
+
+<a href="">Jestem odnośnikiem!</a>
+
+<script>
+  const nameInput = document.querySelector('#nameInput');
+  const surnameInput = document.querySelector('#surnameInput');
+  const form = document.querySelector('form');
+  const a = document.querySelector('a');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = nameInput.value;
+    const surname = surnameInput.value;
+
+    const url = `http://localhost:3000/?name=${encodeURIComponent(name)}&surname=${encodeURIComponent(surname)}`;
+
+    a.setAttribute('href', url);
+  })
+</script>
+</body>
+</html>
