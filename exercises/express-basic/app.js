@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const port = 3000;
+const path = require("path");
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
@@ -49,23 +50,39 @@ app.listen(port, () => {
 //   res.end(`${req.params.id} ... ${req.params.title}`);
 // });
 
+// app.get("/", (req, res) => {
+// res.write("Zażółć gęślą jaźń");
+// res.end();
+// res.send("Zażółć gęślą jaźń");
+// const str = "Zażółć gęślą jaźń";
+// const arr = str.split(" ");
+// res.send(arr);
+// res.send({
+//   text: "Hello world!",
+//   isGood: true,
+// });
+
+//   res.json({
+//     text: "Hello world!",
+//     isGood: false,
+//   });
+//
+//   res.location("https://raubuc.net");
+//   res.sendStatus(302);
+// });
+
 app.get("/", (req, res) => {
-  // res.write("Zażółć gęślą jaźń");
-  // res.end();
-  // res.send("Zażółć gęślą jaźń");
-  const str = "Zażółć gęślą jaźń";
-  const arr = str.split(" ");
-  // res.send(arr);
-  // res.send({
-  //   text: "Hello world!",
-  //   isGood: true,
-  // });
+  res.send(`
+  <!doctype html>
+  <html lang="ang">
+  <body>
+  <img src="/logo" alt="logo">
+  
+  </body>
+  </html>
+`);
+});
 
-  res.json({
-    text: "Hello world!",
-    isGood: false,
-  });
-
-  res.location("https://raubuc.net");
-  res.sendStatus(302);
+app.get("/logo", (req, res) => {
+  const fileName = path.join(__dirname);
 });
