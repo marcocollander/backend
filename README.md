@@ -52,7 +52,7 @@ modułu nie musi się martwić, że funkcja lub zmienna modułu spowoduje nadpis
 ### 3.1.1. Tworzenie modułu
 
 Moduł może mieć postać pojedynczego pliku lub katalogu zawierającego jeden lub więcej plików. Jeżeli moduł ma
-postać katalogu, plik w katalogu modułu powinien mieć nazwę `index.js`, choć można to zmienić w pliku `package.json`.
+postać katalogu, plik w katalogu modułu powinien mieć nazwę `app.js`, choć można to zmienić w pliku `package.json`.
 
 W celu utworzenia typowego modułu konieczne jest przygotowanie pliku definiującego właściwości obiektu `exports` wraz z danymi dowolnego rodzaju, na przykład ciągami tekstowymi, obiektami i funkcjami.
 

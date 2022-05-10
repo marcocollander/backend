@@ -7,7 +7,7 @@
 <body>
 <form action="">
   <label for="nameInput">Imię:</label><br><input type="text" id="nameInput"><br><br>
-  <label for="surnameInput">Nazwisko:</label><br><input type="text" id="surnameInput"><br><br><br>
+  <label for="surnameInput">Nazwisko:</label><br><input type="text" id="surnameInput"><br><br>
   <button type="submit">Wygeneruj odnośnik</button>
 </form>
 <br><br>
@@ -25,10 +25,13 @@
 
     const name = nameInput.value;
     const surname = surnameInput.value;
+    const params = new URLSearchParams({
+      name, surname
+    })
 
-    const url = `http://localhost:3000/?name=${encodeURIComponent(name)}&surname=${encodeURIComponent(surname)}`;
-
+    const url = `http://localhost:3000/?${params}`
     a.setAttribute('href', url);
+
   })
 </script>
 </body>
