@@ -1,38 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Front-end talks with back-end </title>
 </head>
+
 <body>
-<form action="">
-  <label for="nameInput">Imię:</label><br><input type="text" id="nameInput"><br><br>
-  <label for="surnameInput">Nazwisko:</label><br><input type="text" id="surnameInput"><br><br>
-  <button type="submit">Wygeneruj odnośnik</button>
-</form>
-<br><br>
+  <form action="">
+    <label for="nameInput">Imię:</label><br><input type="text" id="nameInput"><br><br>
+    <label for="surnameInput">Nazwisko:</label><br><input type="text" id="surnameInput"><br><br>
+    <button type="submit">Wygeneruj odnośnik</button>
+  </form>
+  <br><br>
 
-<a href="">Jestem odnośnikiem!</a>
+  <a href="">Jestem odnośnikiem!</a><br><br>
 
-<script>
-  const nameInput = document.querySelector('#nameInput');
-  const surnameInput = document.querySelector('#surnameInput');
-  const form = document.querySelector('form');
-  const a = document.querySelector('a');
+  <img src="/logo" alt="swan">
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
+  <script>
+    const nameInput = document.querySelector('#nameInput');
+    const surnameInput = document.querySelector('#surnameInput');
+    const form = document.querySelector('form');
+    const a = document.querySelector('a');
 
-    const name = nameInput.value;
-    const surname = surnameInput.value;
-    const params = new URLSearchParams({
-      name, surname
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = nameInput.value;
+      const surname = surnameInput.value;
+      const params = new URLSearchParams({
+        name, surname
+      })
+
+      const url = `http://localhost:3000/?${params}`
+      a.setAttribute('href', url);
+
     })
-
-    const url = `http://localhost:3000/?${params}`
-    a.setAttribute('href', url);
-
-  })
-</script>
+  </script>
 </body>
+
 </html>

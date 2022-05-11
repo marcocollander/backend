@@ -138,7 +138,31 @@ odniesienie, musisz spowodować, aby `module.exports` ponownie odwoływał się 
   module.exports = exports = Currency;
 ```
 
+# 4. Express.js
 
+## Przesyłanie plików
+W Expressie pliki przesyłamy za pomocą metody `res.sendFile()`. Należy jako parametr podać 
+ścieżkę do pliku, jako drugi parametr można podać obiekt opcji.  
+
+## Ustawianie nagłówków
+
+Nagłówki ustawiamy za pomocą metody `res.set()` np:
+
+```javascript
+rest.set('Content-Type': 'text/plan');
+
+res.set({
+  'Content-Type': 'text/html',
+  'Content-Length: '123'
+})
+```
+
+## Ciasteczka
+
+Pozwalają zapamiętywać krótkie informacje - np. identyfikatory, informacje 
+typu zalogowany czy nie - na urządzeniu klienta.
+Ustawianie ciasteczek sprowadza się do ustawienia opowiednich nagłówków, 
+za pomocą funkcji `res.cookie()`
 
 
 
