@@ -159,10 +159,52 @@ res.set({
 
 ## Ciasteczka
 
-Pozwalają zapamiętywać krótkie informacje - np. identyfikatory, informacje 
-typu zalogowany czy nie - na urządzeniu klienta.
-Ustawianie ciasteczek sprowadza się do ustawienia opowiednich nagłówków, 
-za pomocą funkcji `res.cookie()`
+Pozwalają zapamiętywać krótkie informacje — np. identyfikatory, informacje 
+typu zalogowany czy nie — na urządzeniu klienta.
+Ustawianie ciasteczek sprowadza się do ustawienia odpowiednich nagłówków, 
+za pomocą funkcji `res.cookie()`:
+
+```javascript
+
+app.get("/hi/:name", (req, res) => {
+  const { name } = req.params;
+  const dt = new Date();
+  
+  dt.setDate(dt.getDate() + 7);
+  res.cookie("visitor_name", name, { expires: dt });
+  res.send("Imię zapisano");
+});
+
+```
+
+Za pomocą trzeciego argumentu:
+
+* `domain` - domena, do której będą wysyłane ciasteczka
+* `expires` - czas do kiedy, ciastko ma być zapamiętane
+* `maxAge` - określa jak długo ciastko ma istnieć w ms
+* `httpOnly` - jeśli ustawione na `true`, front-end nie dostępu do ciastka
+
+Stworzone wcześniej ciastko możemy usunąć metodą `res.clearCookie()` z argumentem zawierającym nazwę ciasteczka. 
+Opcjonalnie można podać drugi argument, taki jak dla `res.cookie()`. 
+
+## Middleware
+
+Zapytanie od klienta `HTTP Request` przechodząc przez `Express` przechodzi przez ścieżki (`Matched Route`), 
+następnie przez `Middleware` np. (`CORS`, `CSRF`, `Auth` ) , później tworzy się `Main Task` i tak przetworzone 
+żądanie zmienia się w odpowiedź, która jest wysyłana do klienta `HTTP Response`.
+
+Middleware są to kolejne warstwy, łączące nasze zapytanie w odpowiedz. Służą do odkodowania treści lub do odebrania 
+jakichś plików.
+
+Obiekt `app` reprezentujący aplikację w `Express.js` ma metodę `app.use()` za pomocą której możemy zarejestrować 
+`middleware`:
+
+```javascript
+  app.use(someMiddleware());
+```
+
+
+
 
 
 
